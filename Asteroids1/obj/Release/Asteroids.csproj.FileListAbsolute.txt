@@ -1,0 +1,9 @@
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\bin\Release\Asteroids1.exe.config
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\bin\Release\Asteroids1.exe
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\bin\Release\Asteroids1.pdb
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Release\Asteroids2.Display.resources
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Release\Asteroids2.frmMain.resources
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Release\Asteroids2.Properties.Resources.resources
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Release\Asteroids.csproj.GenerateResource.Cache
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Release\Asteroids1.exe
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Release\Asteroids1.pdb

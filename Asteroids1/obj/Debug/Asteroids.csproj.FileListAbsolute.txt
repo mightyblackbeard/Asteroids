@@ -1,0 +1,43 @@
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\bin\Debug\Asteroids1.exe.config
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids1.pdb
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\bin\Debug\Asteroids1.exe
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\bin\Debug\Asteroids1.pdb
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids.csprojResolveAssemblyReference.cache
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids2.Display.resources
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids2.frmMain.resources
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids2.Properties.Resources.resources
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids.csproj.GenerateResource.Cache
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids1.exe
+D:\_Angelo\Projects\_Test\Asteroids5\Asteroids1\bin\Debug\Asteroids1.exe.config
+D:\_Angelo\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids1.pdb
+D:\_Angelo\Projects\_Test\Asteroids5\Asteroids1\bin\Debug\Asteroids1.exe
+D:\_Angelo\Projects\_Test\Asteroids5\Asteroids1\bin\Debug\Asteroids1.pdb
+D:\_Angelo\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids.csprojResolveAssemblyReference.cache
+D:\_Angelo\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids2.Display.resources
+D:\_Angelo\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids2.frmMain.resources
+D:\_Angelo\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids2.Properties.Resources.resources
+D:\_Angelo\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids.csproj.GenerateResource.Cache
+D:\_Angelo\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids1.exe
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids5\Asteroids1\bin\Debug\Asteroids1.exe.config
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids1.pdb
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids5\Asteroids1\bin\Debug\Asteroids1.exe
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids5\Asteroids1\bin\Debug\Asteroids1.pdb
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids.csprojResolveAssemblyReference.cache
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids2.Display.resources
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids2.frmMain.resources
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids2.Properties.Resources.resources
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids.csproj.GenerateResource.Cache
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids5\Asteroids1\obj\Debug\Asteroids1.exe
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\bin\Debug\Asteroids1.exe.config
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Debug\Asteroids1.pdb
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\bin\Debug\Asteroids1.exe
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\bin\Debug\Asteroids1.pdb
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Debug\Asteroids.csprojResolveAssemblyReference.cache
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Debug\Asteroids2.Display.resources
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Debug\Asteroids2.frmMain.resources
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Debug\Asteroids2.Properties.Resources.resources
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Debug\Asteroids.csproj.GenerateResource.Cache
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids1\obj\Debug\Asteroids1.exe
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids\Asteroids1\bin\Debug\Asteroids1.exe.config
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids\Asteroids1\obj\Debug\Asteroids1.exe
+C:\Users\CCSDuser\Desktop\SCHOOL\PHI 221\Asteroids\Asteroids1\obj\Debug\Asteroids1.pdb

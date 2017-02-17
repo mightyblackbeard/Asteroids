@@ -1,0 +1,10 @@
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\bin\Debug\Asteroids1.exe.config
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\bin\Debug\Asteroids1.exe
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\bin\Debug\Asteroids1.pdb
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids2.csprojResolveAssemblyReference.cache
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids2.Display.resources
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids2.frmMain.resources
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids2.Properties.Resources.resources
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids2.csproj.GenerateResource.Cache
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids1.exe
+C:\Angelo\PRG 321-322\Projects\_Test\Asteroids1\Asteroids1\obj\Debug\Asteroids1.pdb
