@@ -133,6 +133,26 @@ namespace Asteroids2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bombpart1 {
+            get {
+                object obj = ResourceManager.GetObject("bombpart1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bombpart2 {
+            get {
+                object obj = ResourceManager.GetObject("bombpart2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Emeny {
             get {
                 object obj = ResourceManager.GetObject("Emeny", resourceCulture);
@@ -253,9 +273,39 @@ namespace Asteroids2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap shipshielded {
+            get {
+                object obj = ResourceManager.GetObject("shipshielded", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap shipThrust {
             get {
                 object obj = ResourceManager.GetObject("shipThrust", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap torpedo1 {
+            get {
+                object obj = ResourceManager.GetObject("torpedo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap torpedo2 {
+            get {
+                object obj = ResourceManager.GetObject("torpedo2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

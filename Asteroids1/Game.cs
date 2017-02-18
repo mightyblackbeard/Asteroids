@@ -11,6 +11,7 @@ namespace Asteroids2
 {
     public delegate void fireaway(EShip e);
     public delegate void spew(Mother m);
+    public delegate void photon(Bomb b);
 
 
     public class Game
@@ -100,16 +101,22 @@ namespace Asteroids2
         public List<Asteroid> asteroids;
         public List<Missile> missiles;
         public List<Explosion> explosions;
+        public List<BombExp> b_explosions;
         protected List<EShip> enemiesToAdd;
         protected int shipMissles;
         protected int Roids;
         protected List<int> explosionsToDelete;
         protected List<Missile> newMissles;
+        protected List<BombExp> newBombExplosion;
+        public List<Bomb> bombs;
         public List<EShip> enemies;
+        protected List<int> bombexpToDelete;
         protected Random rand;
+        public int BombsLeft;
         protected Asteroid p;
         protected System.Timers.Timer shipSpawnTmr;
         public int Wave;
+        protected int bonusScore;
 
 
         public Game()
@@ -118,15 +125,23 @@ namespace Asteroids2
             shipMissles = 0;
             ak = 0;
             Score = 0;
+            bonusScore = 0;
             numMissiles = 16;
             livesLeft = 5;
+            BombsLeft = 3;
             rand = new Random();
             shipImage = Properties.Resources.ship;
             asteroids = new List<Asteroid>();
             missiles = new List<Missile>();
             explosions = new List<Explosion>();
+
             explosionsToDelete = new List<int>();
             enemiesToAdd = new List<EShip>();
+
+            bombs = new List<Bomb>();
+            b_explosions = new List<BombExp>();
+            bombexpToDelete = new List<int>();
+            newBombExplosion = new List<BombExp>();
 
             newMissles = new List<Missile>();
             enemies = new List<EShip>();
@@ -134,9 +149,43 @@ namespace Asteroids2
             shipSpawnTmr = new System.Timers.Timer();
             shipSpawnTmr.Interval = 4000;
             ResetShip(new Vector(600, 300));
-            Wave = 0;
+            Wave = 8;
             //            blackHole = new Asteroid(new Vector(600, 300), new Vector(0.0f, 0),
   //              0, 1, Properties.Resources.blackhole);
+        }
+
+        public void fireBomb()
+        {
+            if(BombsLeft > 0)
+            {
+                Bomb b = new Bomb(new Vector(0, 0), new Vector(0, 0), 0, 0,
+                        Properties.Resources.torpedo1, true);
+                b.PlaceMissile(ship.Pos, ship.Angle,
+                            ship.Image.Height);
+                b.boom += B_boom;
+
+                bombs.Add(b);
+
+                BombsLeft--;
+            }
+        }
+
+        private void B_boom(Bomb b)
+        {
+            Image img = Properties.Resources.bombpart1;
+            BombExp ex = new BombExp(new Vector(b.Pos),
+            img, rand.Next(0, 360), 8, 2, 128, 128);
+            ex.bFinished += Ex_bFinished;
+            newBombExplosion.Add(ex);
+            b.swap.Stop();
+            b.explode.Stop();
+
+            bombs.Remove(b);
+        }
+        
+        private void Ex_bFinished(BombExp b)
+        {
+            bombexpToDelete.Insert(0, b_explosions.IndexOf(b));
         }
 
         public void AddAsteroid()
@@ -212,30 +261,26 @@ namespace Asteroids2
             asteroids.Add(a);
         }
 
-        public void AddEnemies()
+        public void AddEnemies(Mother m)
         {
-            foreach (EShip enemy in enemies)
+
+            int imagevariation = rand.Next(0, 2);
+            Image i;
+
+            if (imagevariation == 0)
             {
-                if (!enemy.canShoot)
-                {
-                    int imagevariation = rand.Next(0, 2);
-                    Image i;
-
-                    if (imagevariation == 0)
-                    {
-                        i = Properties.Resources.Emeny;
-                    }
-                    else
-                    {
-                        i = Properties.Resources.Emeny2;
-                    }
-
-
-                    EShip e = new EShip(new Vector(enemy.Pos), new Vector(rand.Next(-5, 5), rand.Next(-5, 5)), rand.Next(0, 360), rand.Next(-7, 7), i, imagevariation);
-                    e.fire += EnemyFire;
-                    enemiesToAdd.Add(e);
-                }
+                i = Properties.Resources.Emeny;
             }
+            else
+            {
+                i = Properties.Resources.Emeny2;
+            }
+
+
+            EShip e = new EShip(new Vector(m.Pos), new Vector(rand.Next(-5, 5), rand.Next(-5, 5)), rand.Next(0, 360), rand.Next(-7, 7), i, imagevariation);
+            e.fire += EnemyFire;
+            enemiesToAdd.Add(e);
+
         }
 
         public void MotherShip()
@@ -265,7 +310,7 @@ namespace Asteroids2
         {
             for (int i = 0; i < 2; i++)
             {
-                AddEnemies();
+                AddEnemies(es);
                         
             }
 
@@ -316,8 +361,12 @@ namespace Asteroids2
             {
                 ship = new Ship(pos, new Vector(0, 0),
                     0, 0, shipImage);
-                if(blackHole != null)
+                if (blackHole != null)
+                {
                     shipSpawnTmr.Start();
+                    ship.Image = Properties.Resources.shipshielded;
+                    ship.Shielded = true;
+                }
             }
             ak = 0; // Reset asteroids killed to zero
             numMissiles = 10; // Bonus round ended, no more double shots of Tequila
@@ -464,13 +513,18 @@ namespace Asteroids2
                 missiles.Add(m);
             }
 
+            foreach (BombExp b in newBombExplosion)
+            {
+                b_explosions.Add(b);
+            }
+
             foreach(EShip e in enemiesToAdd)
             {
                 enemies.Add(e);
             }
 
             enemiesToAdd.Clear();
-
+            newBombExplosion.Clear();
             newMissles.Clear();
 
             foreach (Missile m in missiles)
@@ -484,6 +538,12 @@ namespace Asteroids2
                         m.Move(pull);
                     }
                 }
+            }
+
+            foreach(Bomb b in bombs)
+            {
+                b.Move();
+                Wrap(b.Pos);
             }
 
             foreach(EShip e in enemies)
@@ -518,18 +578,14 @@ namespace Asteroids2
                         AddAsteroid();
                     }
                 }
-
-                
             }
 
-            //if((LivesLeft == 0) && (state == GameState.Resetting))
-            //{
-            //    string over = "Game Over\n\n" + "Waves Cleared: " + (Wave - 1).ToString() + "\nScore: " + Score.ToString();
-            //    if (MessageBox.Show(over, "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Warning) == DialogResult.OK)
-            //    {
-                    
-            //    }
-            //}
+            if(bonusScore > 10000)
+            {
+                LivesLeft++;
+                BombsLeft++;
+                bonusScore = 0;
+            }
         }
 
         protected void KillMissilesOutOfRange()
@@ -587,6 +643,43 @@ namespace Asteroids2
                         }
                     }
 
+                    foreach(BombExp b in b_explosions)
+                    {
+                        if (b.img != null)
+                        {
+                            sumOfWidths = Enemy.Image.Width / 2 + b.img.Width / 2;
+                            pointing = new Vector(Enemy.Pos - b.Pos);
+                            dist = pointing.Magnitude;
+
+                            if (dist < sumOfWidths)
+                            {
+                                if (!enemiesToDelete.Contains(enemies.IndexOf(Enemy)))
+                                {
+                                    enemiesToDelete.Insert(0, enemies.IndexOf(Enemy));
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+
+                foreach (BombExp b in b_explosions)
+                {
+                    if (b.img != null)
+                    {
+                        int sumOfWidths = a.Image.Width / 2 + b.img.Width / 2;
+                        Vector pointing = new Vector(a.Pos - b.Pos);
+                        float dist = pointing.Magnitude;
+
+                        if (dist < sumOfWidths)
+                        {
+                            int idxAsteroid = asteroids.IndexOf(a);
+                            if (!asteroidsToDelete.Contains(idxAsteroid))
+                                asteroidsToDelete.Insert(0, idxAsteroid);
+                        }
+                    }
+
                 }
 
                 foreach (Missile m in missiles)
@@ -612,16 +705,19 @@ namespace Asteroids2
                         pointing = m.Pos - ship.Pos;
                         dist = pointing.Magnitude;
 
-                        if (dist < sumOfWidths && !m.friendlyMissle)
+                        if ((dist < sumOfWidths && !m.friendlyMissle))
                         {       // Ship was shot by enemy laser
-                            ship.Crashed = true;
-                            Explosion ex = new Explosion(new Vector(ship.Pos),
-                                Properties.Resources.explosionShip, 0,
-                                8, 4, 256, 256);
-                            ex.Finished += ex_Finished;
-                            explosions.Add(ex);
-                            ship = null;
-                            livesLeft--;
+                            if (!ship.Shielded)
+                            {
+                                ship.Crashed = true;
+                                Explosion ex = new Explosion(new Vector(ship.Pos),
+                                    Properties.Resources.explosionShip, 0,
+                                    8, 4, 256, 256);
+                                ex.Finished += ex_Finished;
+                                explosions.Add(ex);
+                                ship = null;
+                                livesLeft--;
+                            }
                             if (!missilesToDelete.Contains(missiles.IndexOf(m)))
                                 missilesToDelete.Insert(0, missiles.IndexOf(m));
                             // Create a "white hole" for repulsion...
@@ -662,14 +758,17 @@ namespace Asteroids2
                     float dist2 = pointing2.Magnitude;
                     if (dist2 < sumOfWidths2)
                     {       // Ship has collided with an asteroid
-                        ship.Crashed = true;
-                        Explosion ex = new Explosion(new Vector(ship.Pos),
-                            Properties.Resources.explosionShip, 0,
-                            8, 4, 256, 256);
-                        ex.Finished += ex_Finished;
-                        explosions.Add(ex);
-                        ship = null;
-                        livesLeft--;
+                        if (!ship.Shielded)
+                        {
+                            ship.Crashed = true;
+                            Explosion ex = new Explosion(new Vector(ship.Pos),
+                                Properties.Resources.explosionShip, 0,
+                                8, 4, 256, 256);
+                            ex.Finished += ex_Finished;
+                            explosions.Add(ex);
+                            ship = null;
+                            livesLeft--;
+                        }
                         if (!asteroidsToDelete.Contains(asteroids.IndexOf(a)))
                             asteroidsToDelete.Insert(0, asteroids.IndexOf(a));
                         // Create a "white hole" for repulsion...
@@ -691,10 +790,12 @@ namespace Asteroids2
                     explosions.Add(ex);
 
                     Score += 1000;
+                    bonusScore += 1000;
                     ak += 5;
                     enemies[idx].shoot.Stop();
                     enemies.RemoveAt(idx);
                 }
+
                 foreach (int idx in missilesToDelete)
                 {   // Remove missiles which had been detected to collide
                     if(missiles[idx].friendlyMissle)
@@ -732,6 +833,7 @@ namespace Asteroids2
                 explosions.Add(ex);
                 // Update the score...
                 Score += 50 * (4-asteroids[idx].Size);
+                bonusScore += 50 * (4 - asteroids[idx].Size);
 
                 //Split the asteroids up
 
@@ -811,6 +913,8 @@ namespace Asteroids2
         {
             shipSpawnTmr.Stop();
             shipSpawnTmr.Elapsed -= shipSpawnTmr_Elapsed;
+            ship.Shielded = false;
+            ship.Image = Properties.Resources.ship;
             blackHole = null;
             state = GameState.Running;
         }
@@ -827,6 +931,13 @@ namespace Asteroids2
                 explosions.RemoveAt(idx);
             }
             explosionsToDelete.Clear();
+
+            foreach(int idx in bombexpToDelete)
+            {
+                b_explosions.RemoveAt(idx);
+            }
+
+            bombexpToDelete.Clear();
         }
 
         protected void Wrap(Vector pos)

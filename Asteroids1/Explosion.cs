@@ -31,7 +31,7 @@ namespace Asteroids2
             }
         }
         public event FinishedHandler Finished;
-        public Image NextFrame
+        virtual public Image NextFrame
         {
             get
             {

@@ -20,7 +20,7 @@ namespace Asteroids2
             friendlyMissle = type;
         }
 
-        public void PlaceMissile(Vector shipPos, int shipAngle,
+        virtual public void PlaceMissile(Vector shipPos, int shipAngle,
             int shipHeight)
         {
             Vector facing = new Vector(shipAngle);

@@ -33,12 +33,6 @@ namespace Asteroids2
             display.Invalidate();
         }
 
-        private void btnAddAsteroid_Click(object sender, EventArgs e)
-        {
-            for(int i = 0; i < 20; i++)
-                game.AddAsteroid();
-        }
-
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if(msg.Msg == WM_KEYDOWN)
@@ -110,7 +104,15 @@ namespace Asteroids2
 
         private void display_MouseUp(object sender, MouseEventArgs e)
         {
-            game.Fire();
+            if (e.Button == MouseButtons.Left)
+            {
+                game.Fire();
+            }
+
+            if(e.Button == MouseButtons.Right)
+            {
+                game.fireBomb();
+            }
         }
 
         private void display_MouseMove(object sender, MouseEventArgs e)

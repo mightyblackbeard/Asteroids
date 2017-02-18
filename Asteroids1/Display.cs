@@ -80,7 +80,28 @@ namespace Asteroids2
                     e.Graphics.DrawImage(m.Image, new Point(0, 0));
                 }
 
+                foreach (Bomb m in game.bombs)
+                {
+                    e.Graphics.ResetTransform();    // Reset picasso to origin
+                    e.Graphics.TranslateTransform(m.Pos.X - m.Image.Width / 2, m.Pos.Y - m.Image.Height / 2);
+                    e.Graphics.TranslateTransform(m.Image.Width / 2, m.Image.Height / 2);
+                    e.Graphics.RotateTransform(m.Angle);
+                    e.Graphics.TranslateTransform(m.Image.Width / -2, m.Image.Height / -2);
+                    e.Graphics.DrawImage(m.Image, new Point(0, 0));
+                }
+
                 foreach (Explosion ex in game.explosions)
+                {
+                    Image frame = ex.NextFrame;
+                    e.Graphics.ResetTransform();
+                    e.Graphics.TranslateTransform(ex.Pos.X - frame.Width / 2, ex.Pos.Y - frame.Height / 2);
+                    e.Graphics.TranslateTransform(frame.Width / 2, frame.Height / 2);
+                    e.Graphics.RotateTransform(ex.Angle);
+                    e.Graphics.TranslateTransform(frame.Width / -2, frame.Height / -2);
+                    e.Graphics.DrawImage(frame, new Point(0, 0));
+                }
+
+                foreach (BombExp ex in game.b_explosions)
                 {
                     Image frame = ex.NextFrame;
                     e.Graphics.ResetTransform();
@@ -106,12 +127,22 @@ namespace Asteroids2
 
                 // Now draw the HUD indicating # of ships remaining...
                 e.Graphics.ResetTransform();
-                int left = Width - (game.LivesLeft - 1) * (game.ShipImage.Width + 20);
+                int left = Width - (game.LivesLeft) * (game.ShipImage.Width + 20);
                 e.Graphics.TranslateTransform(left, 10);
-                for (int i = 0; i < game.LivesLeft - 1; i++)
+                for (int i = 0; i < game.LivesLeft; i++)
                 {
                     e.Graphics.DrawImage(game.ShipImage, new Point(0, 0));
                     e.Graphics.TranslateTransform(game.ShipImage.Width + 20, 0);
+                }
+                //Draw Bombs under lives left
+                e.Graphics.ResetTransform();
+                left = Width - (game.BombsLeft) * (Properties.Resources.torpedo1.Width + 20);
+                int down = game.ShipImage.Height + 40;
+                e.Graphics.TranslateTransform(left, down);
+                for (int i = 0; i < game.BombsLeft; i++)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.torpedo1, new Point(0, 0));
+                    e.Graphics.TranslateTransform(Properties.Resources.torpedo1.Width + 20, 0);
                 }
                 // Draw the score at the top center of the screen...
                 e.Graphics.ResetTransform();

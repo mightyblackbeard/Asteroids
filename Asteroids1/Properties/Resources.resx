@@ -178,4 +178,19 @@
   <data name="plasma" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\plasma.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="shipshielded" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\shipshielded.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bombpart1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\bombpart1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bombpart2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\bombpart2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="torpedo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\torpedo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="torpedo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\torpedo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

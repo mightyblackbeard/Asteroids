@@ -9,6 +9,19 @@ namespace Asteroids2
 {
     public class Ship : Asteroid
     {
+        protected bool shielded;
+        public bool Shielded
+        {
+            get
+            {
+                return shielded;
+            }
+            set
+            {
+                shielded = value;
+            }
+        }
+
         protected bool crashed;
         public bool Crashed
         {
@@ -26,6 +39,7 @@ namespace Asteroids2
             : base(pos, vel, angle, angularV, img)
         {
             crashed = false;
+            shielded = false;
         }
 
         public override void Move()
